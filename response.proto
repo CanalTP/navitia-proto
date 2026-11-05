@@ -703,7 +703,7 @@ message Response {
     optional DirectStopPoints direct_stop_points = 83;
 
     // for api schedules
-    repeated Schedule schedules = 84; // DEPRECATED
+    repeated Schedule schedules = 84;
 
     // for api timetables
     repeated Timetable timetables = 85;
@@ -726,11 +726,11 @@ message VehiclePosition {
 }
 
 
-// DEPRECATED
-// A schedule containing the timetable and public transport display information.
 message Schedule {
-    required ScheduleTable table = 1;
-    required PtDisplayInfo pt_display_informations = 2;
+    required PtDisplayInfo pt_display_informations = 1;
+    repeated StopDateTime date_times               = 2;
+    required string stop_area_id                   = 3;
+    optional ResponseStatus response_status        = 4;
 }
 
 // DEPRECATED
